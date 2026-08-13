@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#171717">
+<title>CREW JOURNAL</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap');
+:root{--ink:#171716;--paper:#eee8dc;--paper2:#faf7f0;--red:#a52130;--red2:#c44551;--gold:#b69a68;--muted:#7e766b;--line:#d4cabb}
+*{box-sizing:border-box}html,body{margin:0;background:var(--paper);color:var(--ink);font-family:"DM Sans",sans-serif;overflow-x:hidden}
+button,input,textarea,select{font:inherit}button{cursor:pointer}.hidden{display:none!important}
+#intro{background:radial-gradient(circle at 50% 35%,#3a3933,#151514 64%);color:#f6f1e7}
+.intro-inner h1{font:700 clamp(42px,9vw,82px) "Playfair Display";letter-spacing:.05em}.intro-inner p{letter-spacing:.17em;color:#c8c0b4}.passport-mark{border-color:var(--gold);color:#d0b982}
+#app{background:linear-gradient(90deg,#e6dfd3 0 225px,var(--paper) 225px);min-height:100vh}
+.sidebar{width:225px;background:#e6dfd3;border-right:1px solid var(--line);padding:28px 18px}.logo{letter-spacing:.12em}
+.nav button,.settings{border-radius:9px}.active,nav button:hover,.settings:hover{background:#ddd5c8!important;color:var(--ink)!important;box-shadow:inset 3px 0 var(--red)}
+main{padding:30px 4vw 90px;max-width:1550px}
+.top{border-bottom:1px solid var(--line);padding-bottom:22px}.top h1{font:700 clamp(38px,5vw,68px) "Playfair Display";margin:0}.top h2{font:500 16px "DM Sans";letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin:8px 0 0}.dark{border-radius:8px;background:var(--ink);padding:11px 16px}
+.hero{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(310px,.8fr);gap:18px;margin-top:22px}
+.world-card{background:#e7e0d4;border:1px solid var(--line);border-radius:22px;padding:24px;min-height:620px;position:relative;overflow:hidden}
+.world-card .eyebrow{font-size:12px;letter-spacing:.18em;color:var(--muted);text-transform:uppercase}.world-card h2{font:600 38px "Playfair Display";margin:8px 0 0}
+.globe-stage{height:450px;display:grid;place-items:center;position:relative}
+.globe{width:min(410px,76%);aspect-ratio:1;border-radius:50%;background:url("https://upload.wikimedia.org/wikipedia/commons/9/97/The_Earth_seen_from_Apollo_17.jpg") center/cover;border:1px solid #a29a8e;box-shadow:-30px 35px 75px #0005,inset -38px -12px 65px #0008;position:relative;transform:perspective(700px) rotateX(5deg)}
+.globe:before{content:"";position:absolute;inset:-2px;border-radius:50%;box-shadow:inset 20px 0 40px #fff4,inset -35px -8px 55px #0007}.globe:after{content:"";position:absolute;inset:0;border-radius:50%;background:radial-gradient(circle at 27% 23%,#fff7,transparent 19%),linear-gradient(105deg,transparent 55%,#0007)}
+.gdot{position:absolute;width:11px;height:11px;border-radius:50%;background:var(--red2);border:2px solid #fff;box-shadow:0 0 0 5px #a5213035;z-index:2}.gdot.one{left:38%;top:42%}.gdot.two{left:55%;top:49%}.gdot.three{left:66%;top:58%}.gdot.four{left:48%;top:61%}
+.world-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:12px;overflow:hidden}.world-stat{background:var(--paper2);padding:14px}.world-stat b{display:block;font:600 26px "Playfair Display"}.world-stat span{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.side-column{display:grid;gap:18px;align-content:start}.passport-card{background:#201f1d;color:#f6f1e7;border-radius:18px;padding:24px;min-height:360px;position:relative;overflow:hidden;border:1px dashed #766d61}
+.passport-card:before{content:"TRAVEL ARCHIVE";position:absolute;right:-30px;top:42px;transform:rotate(90deg);font-size:10px;letter-spacing:.25em;color:#8d8376}.passport-card .stamp{display:inline-grid;place-items:center;width:112px;height:112px;border:2px dashed #b69a68;border-radius:50%;color:#cdb985;transform:rotate(-8deg);font-size:11px;text-align:center;letter-spacing:.08em}.passport-card h3{font:600 43px "Playfair Display";line-height:.95;margin:30px 0 15px}.passport-card p{color:#bdb5aa}.passport-card .code{font:11px monospace;color:#938a7d;letter-spacing:.22em;margin-top:30px}
+.quick-card{background:var(--paper2);border:1px solid var(--line);border-radius:18px;padding:20px}.quick-card h3{font:600 25px "Playfair Display";margin:0 0 14px}.journey{display:flex;align-items:center;gap:12px;padding:13px 0;border-top:1px solid var(--line)}.flag{font-size:26px}.journey b{font-weight:600}.journey small{display:block;color:var(--muted);margin-top:2px}
+.section{margin-top:28px}.sectionhead{display:flex;justify-content:space-between;align-items:end;margin-bottom:12px}.sectionhead h3{font:600 30px "Playfair Display";margin:0}.sectionhead span{font-size:12px;color:var(--muted);letter-spacing:.12em;text-transform:uppercase}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.place{background:var(--paper2);border:1px solid var(--line);border-radius:14px;overflow:hidden}.photo{height:175px;background:#aaa}.photo img{width:100%;height:100%;object-fit:cover}.body{padding:15px}.body b{font:600 22px "Playfair Display"}.pill{display:inline-block;border:1px solid #a5213044;background:#a5213009;color:var(--red);padding:5px 8px;border-radius:20px;font-size:11px;margin-top:8px}
+.bottom-nav{display:none}
+@media(max-width:900px){.hero{grid-template-columns:1fr}.cards{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){
+ body{background:var(--paper)}#app{background:var(--paper)}aside{display:none}
+ main{padding:calc(18px + env(safe-area-inset-top)) 14px 94px}.top{padding-bottom:16px}.top h1{font-size:42px}.top h2{font-size:11px}.top .dark{font-size:10px;padding:9px 10px}
+ .hero{display:block;margin-top:14px}.world-card{min-height:0;padding:17px;border-radius:18px}.world-card h2{font-size:31px}.globe-stage{height:335px}.globe{width:270px}.world-stats{margin-top:0}.world-stat{padding:11px}.world-stat b{font-size:22px}.world-stat span{font-size:9px}
+ .side-column{margin-top:14px}.passport-card{min-height:310px;padding:20px}.passport-card .stamp{width:86px;height:86px;font-size:9px}.passport-card h3{font-size:38px;margin-top:24px}.quick-card{padding:16px}.cards{grid-template-columns:1fr}.cards .place{display:flex}.cards .photo{width:36%;height:125px;flex:none}.cards .body{padding:12px}
+ .bottom-nav{display:flex;position:fixed;left:8px;right:8px;bottom:8px;z-index:50;height:67px;border:1px solid #ffffff22;border-radius:17px;background:#171716ee;backdrop-filter:blur(18px);box-shadow:0 10px 35px #0004;padding:5px;gap:3px}.bottom-nav button{flex:1;border:0;background:transparent;color:#bbb;border-radius:12px;font-size:10px;letter-spacing:.02em}.bottom-nav button.active{background:#f2eee7;color:#171716;box-shadow:none!important}.bottom-nav .bi{display:block;font-size:18px;line-height:20px;margin-bottom:1px}
+}
+</style>
+</head>
+<body>
+<div id="intro"><div class="passport-mark">✈</div><h1>CREW JOURNAL</h1><p>by • Abdulkhamid Makhmudov •</p></div>
+<div id="app" class="hidden">
+<aside>
+  <div class="logo">✈ <span>CREW<br><b>JOURNAL</b></span></div>
+  <nav>
+    <button data-view="world">◉ <span>WORLD</span></button><button data-view="passport">◎ <span>PASSPORT</span></button>
+    <button data-view="days">▦ <span>COUNTRY DAYS</span></button><button data-view="places">▤ <span>PLACES</span></button>
+    <button data-view="crew">♧ <span>CREW</span></button>
+  </nav>
+  <button class="settings" data-view="settings">⚙ <span>SETTINGS</span></button>
+</aside>
+<main>
+<header><div><small>PERSONAL TRAVEL ARCHIVE</small><h2 id="title">Your World</h2></div><button id="addBtn" class="dark">＋ Add memory</button></header>
+<div id="view"></div>
+</main>
+</div>
+
+<div id="modal" class="overlay hidden"><div class="modal"><button class="x" onclick="closeModal()">×</button><div id="modalBody"></div></div></div>
+<script>
+const KEY="crew_journal_full_v2";
+const initial={trips:[{country:"Vietnam",city:"Da Nang",flag:"🇻🇳",date:"2026-08-12"}],places:[
+{id:1,cat:"Must Go",name:"Ba Na Hills",city:"Da Nang",country:"Vietnam",flag:"🇻🇳",comment:"Go early in the morning.",location:"https://www.google.com/maps/search/?api=1&query=Ba+Na+Hills",video:""},
+{id:2,cat:"Must Go",name:"Marble Mountains",city:"Da Nang",country:"Vietnam",flag:"🇻🇳",comment:"",location:"https://www.google.com/maps/search/?api=1&query=Marble+Mountains+Da+Nang",video:""},
+{id:3,cat:"Must Try",name:"Vietnamese Coffee",city:"Da Nang",country:"Vietnam",flag:"🇻🇳",comment:"",location:"",video:""},
+{id:4,cat:"Must Buy",name:"Local Coffee",city:"Da Nang",country:"Vietnam",flag:"🇻🇳",comment:"",location:"",video:""}]};
+let db=JSON.parse(localStorage.getItem(KEY)||"null")||initial; const save=()=>localStorage.setItem(KEY,JSON.stringify(db));
+const $=s=>document.querySelector(s), $$=s=>document.querySelectorAll(s);
+function esc(x){return String(x??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
+function countries(){return [...new Map(db.trips.map(x=>[x.country,x])).values()]}
+function nav(view){$$("aside button,nav button").forEach(b=>b.classList.toggle("active",b.dataset.view===view));const names={world:"Your World",passport:"My Passport",days:"Country Days",places:"My Places",crew:"Crew Board",settings:"Settings"};$("#title").textContent=names[view];({world,passport,days,places,crew,settings}[view])()}
+function placeCard(p){return `<div class="place" onclick="city('${esc(p.city)}')"><div class="photo">${p.photo?`<img src="${p.photo}">`:"✈︎"}</div><div class="body"><span class="pill">${esc(p.cat)}</span><b>${esc(p.name)}</b><span class="muted">📍 ${esc(p.city)} ${p.flag||""}</span></div></div>`}
+function world(){
+let cs=countries(), cities=[...new Set(db.trips.map(x=>x.city))], ps=db.places.slice(0,3);
+$("#view").innerHTML=`<div class="grid2"><div class="card globeWrap"><div class="eyebrow" style="position:absolute;left:24px;top:22px">INTERACTIVE WORLD</div><div class="globe" id="globe">${db.trips.map((x,i)=>`<i class="dot" style="left:${40+i*8}%;top:${42+i*5}%"></i>`).join("")}</div><div class="glabel"><b>${cs.length} COUNTRIES</b><div class="muted">Your world, one journey at a time.</div></div></div><div class="card"><div class="eyebrow">LATEST JOURNEY</div><div class="boarding"><small>CREW JOURNAL · BOARDING PASS</small><h3>Da Nang</h3><span style="color:var(--red)">VIETNAM · DAD</span><div class="route"><span>12 AUG 2026</span><span>🇻🇳</span></div><small>PERSONAL TRAVEL ARCHIVE</small></div><div class="stats"><div class="stat"><b>${cs.length}</b><small>COUNTRIES</small></div><div class="stat"><b>${cities.length}</b><small>CITIES</small></div><div class="stat"><b>${db.trips.length}</b><small>DAYS</small></div></div><div style="margin-top:16px"><button class="dark" onclick="detect()">＋ Detect current journey</button></div></div></div><div class="section"><div class="sectionhead"><h3>Recent memories</h3><button class="ghost" onclick="openAdd()">＋ Add</button></div><div class="cards">${ps.map(placeCard).join("")}</div></div>`;
+let g=$("#globe"),drag=false,last=0;g?.addEventListener("pointerdown",e=>{drag=true;last=e.clientX});window.addEventListener("pointerup",()=>drag=false);window.addEventListener("pointermove",e=>{if(drag){g.style.transform=`rotate(${(e.clientX-last)/4-8}deg)`}})}
+function passport(){$("#view").innerHTML=`<div class="card"><div class="eyebrow">DIGITAL PASSPORT</div><p class="muted">Every country becomes a collectible stamp.</p><div class="stamps">${(countries().length?countries():[{country:"Vietnam",city:"Da Nang",flag:"🇻🇳"}]).map(x=>`<div class="stamp"><div><div style="font-size:29px">${x.flag}</div><strong>${esc(x.country).toUpperCase()}</strong><div>${esc(x.city)}</div><small>${x.date||"AUG 2026"}</small></div></div>`).join("")}</div></div>`}
+function days(){$("#view").innerHTML=`<div class="card"><div class="eyebrow">AUTOMATIC TRAVEL HISTORY</div><p class="muted">Your calendar is populated from saved journeys. You can correct dates later.</p><div class="calendar">${["MON","TUE","WED","THU","FRI","SAT","SUN"].map(x=>`<div class="day"><b>${x}</b></div>`).join("")}${db.trips.map(x=>`<div class="day"><b>${new Date(x.date).getDate()}</b><span class="flag">${x.flag}</span><small>${esc(x.city)}</small></div>`).join("")}</div></div>`}
+function places(){$("#view").innerHTML=`<div class="sectionhead"><h3>My Places</h3><button class="dark" onclick="openAdd()">＋ Add memory</button></div><div class="cards">${db.places.map(placeCard).join("")||'<div class="card">Nothing saved yet.</div>'}</div>`}
+function crew(){$("#view").innerHTML=`<div class="card"><div class="eyebrow">SHARED CREW BOARD</div><h3 style="font:700 31px 'Playfair Display';margin:7px 0">Da Nang · Crew Board</h3><p class="muted">Anyone with the shared link can view, add recommendations and comments in the production version.</p><button class="dark" onclick="navigator.clipboard?.writeText(location.href);alert('Shared link copied')">Copy board link</button></div><div class="section"><div class="sectionhead"><h3>Crew recommendations</h3></div><div class="rows">${db.places.map(p=>`<div class="row"><div class="thumb">✈︎</div><div class="grow"><b>${esc(p.name)}</b><small>${esc(p.cat)} · ${esc(p.city)} ${p.flag||""}</small><small>💬 ${esc(p.comment||"Add a comment")}</small></div><span class="pill">SHARED</span></div>`).join("")}</div></div>`}
+function settings(){$("#view").innerHTML=`<div class="card"><div class="eyebrow">SETTINGS</div><div class="rows" style="margin-top:15px"><div class="row"><div class="grow"><b>Automatic Journey Detection</b><small>Demo detection is enabled.</small></div><input type="checkbox" checked></div><div class="row"><div class="grow"><b>Home currency</b><small>UZS — Uzbekistani soʻm</small></div><b>UZS</b></div><div class="row"><div class="grow"><b>Local journal storage</b><small>Saved persistently in this browser.</small></div><b>ON</b></div><div class="row"><div class="grow"><b>About CREW JOURNAL</b><small>Personal travel archive · iOS-first concept</small></div></div></div></div>`}
+function openAdd(){ $("#modalBody").innerHTML=`<div class="eyebrow">ADD TO YOUR JOURNAL</div><h3>New memory</h3><form class="form" id="form"><label>Category<select id="cat"><option>Must Go</option><option>Must Buy</option><option>Must Try</option></select></label><label>Name<input id="name" required placeholder="e.g. Ba Na Hills"></label><label>Country<input id="country" value="Vietnam"></label><label>City<input id="city" value="Da Nang"></label><label>Location / Google Maps link<input id="loc" placeholder="Paste location or Maps link"></label><label>Comment<textarea id="comment" placeholder="Your note..."></textarea></label><label>Photo<input id="photo" type="file" accept="image/*"></label><label>Video / reference link<input id="video" type="url" placeholder="YouTube, Instagram, TikTok..."></label><div class="actions"><button type="button" class="ghost" onclick="closeModal()">Cancel</button><button class="dark">Save memory</button></div></form>`;$("#modal").classList.remove("hidden");$("#form").onsubmit=savePlace}
+async function savePlace(e){e.preventDefault();let file=$("#photo").files[0],photo="";if(file)photo=await new Promise(r=>{let f=new FileReader();f.onload=()=>r(f.result);f.readAsDataURL(file)});db.places.unshift({id:Date.now(),cat:$("#cat").value,name:$("#name").value,country:$("#country").value,city:$("#city").value,flag:"🇻🇳",location:$("#loc").value,comment:$("#comment").value,photo,video:$("#video").value});save();closeModal();nav("places")}
+function detect(){if(confirm("Da Nang, Vietnam detected. Add this journey?")){let date=new Date().toISOString().slice(0,10);if(!db.trips.some(x=>x.date===date&&x.city==="Da Nang"))db.trips.push({country:"Vietnam",city:"Da Nang",flag:"🇻🇳",date});save();nav("world")}}
+function city(name){let ps=db.places.filter(p=>p.city===name);$("#modalBody").innerHTML=`<div class="eyebrow">CITY JOURNAL</div><h3>${esc(name)} 🇻🇳</h3><div class="card" style="padding:17px"><b>TRAVEL MONEY · UZS ↔ VND</b><div class="converter" style="margin-top:10px"><label>UZS<input id="u" value="0" oninput="conv('u')"></label><label>VND<input id="v" value="0" oninput="conv('v')"></label></div><small class="muted">Demo cached rate. Production version will use live API + offline cache.</small></div><div class="utils"><div class="utility"><b>NEAREST ATM</b><button onclick="maps('ATM')">Google Maps</button></div><div class="utility"><b>NEAREST EXCHANGE</b><button onclick="maps('currency exchange')">Google Maps</button></div><div class="utility"><b>CREW BOARD</b><button onclick="closeModal();nav('crew')">Open</button></div></div>${["Must Go","Must Buy","Must Try"].map(c=>`<div class="section"><div class="sectionhead"><h3>${c}</h3><button class="ghost" onclick="closeModal();openAdd()">＋ Add</button></div><div class="cards">${ps.filter(p=>p.cat===c).map(placeCard).join("")||'<div class="card">Nothing saved here yet.</div>'}</div></div>`).join("")}`;$("#modal").classList.remove("hidden")}
+function conv(w){let r=21,u=$("#u"),v=$("#v");if(w==="u")v.value=Math.round((+u.value||0)*r);else u.value=Math.round((+v.value||0)/r)}
+function maps(q){open("https://www.google.com/maps/search/?api=1&query="+encodeURIComponent(q+" near me"),"_blank")}
+function closeModal(){$("#modal").classList.add("hidden")}
+$$("[data-view]").forEach(b=>b.onclick=()=>nav(b.dataset.view));$("#addBtn").onclick=openAdd;
+setTimeout(()=>{$("#app").classList.remove("hidden");nav("world")},300);
+window.openAdd=openAdd;window.closeModal=closeModal;window.city=city;window.detect=detect;window.conv=conv;window.maps=maps;
+</script>
+
+<script>
+document.addEventListener('DOMContentLoaded',()=>{
+  const main=document.querySelector('main');
+  if(!main) return;
+  // Existing app remains intact; this visual layer only improves the first screen.
+  const top=main.querySelector('.top');
+  if(top){
+    const sub=top.querySelector('h2');
+    if(sub) sub.textContent='PERSONAL TRAVEL ARCHIVE';
+  }
+  // Add globe dots when a globe exists.
+  const globe=main.querySelector('.globe');
+  if(globe && !globe.querySelector('.gdot')){
+    ['one','two','three','four'].forEach(c=>{const d=document.createElement('i');d.className='gdot '+c;globe.appendChild(d)});
+  }
+});
+</script>
+</body></html>
